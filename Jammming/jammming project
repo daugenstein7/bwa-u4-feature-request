@@ -1,0 +1,647 @@
+create-react-app
+<title>Jammming</title>
+<link href="https://fonts.googleapis.com/css?family=Poppins:600" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,500" rel="stylesheet">
+<link href="https://s3.amazonaws.com/codecademy-content/programs/react/jammming/favicon.ico">
+<div>
+  <h1>Ja<span class="highlight">mmm</span>ing</h1>
+  <div class="App">
+    <!-- Add a SearchBar component -->
+    <div class="App-playlist">
+      <!-- Add a SearchResults component -->
+      <!-- Add a Playlist component -->
+    </div>
+  </div>
+</div>
+body,
+html,
+#root {
+  height: 100%;
+}
+
+html {
+  font-size: 18px;
+}
+
+h1 {
+  padding: .77rem 0;
+  background-color: #010c3f;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.88rem;
+  color: #fff;
+}
+
+h1 .highlight {
+  color: #6c41ec;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.55rem;
+}
+
+.App {
+  height: 100%;
+  padding: 0 17% 10% 17%;
+  background-image: url('./background_photo_desktop.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  color: #fff;
+}
+
+.App-playlist {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media only screen and (max-width: 1020px) {
+  .App-playlist {
+    align-items: center;
+    flex-direction: column;
+  }
+}
+<div class="SearchBar">
+  <input placeholder="Enter A Song, Album, or Artist" />
+  <a>SEARCH</a>
+</div>
+.SearchBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6.94rem;
+  margin-bottom: 6.33rem;
+}
+
+.SearchBar input {
+  width: 287px;
+  padding: .88rem 0;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  margin-bottom: 2.22rem;
+  color: #010c3f;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.SearchBar input:focus {
+  outline: none;
+}
+
+.SearchBar a {
+  cursor: pointer;
+  width: 8.11rem;
+  padding: .77rem 0;
+  border-radius: 54px;
+  background-color: #010c3f;
+  text-align: center;
+  font-size: .833rem;
+  transition: background-color .25s;
+}
+
+.SearchBar a:hover {
+  background-color: rgba(108, 65, 233, .7);
+}
+<div className="SearchResults">
+  <h2>Results</h2>
+  <!-- Add a TrackList component -->
+</div>
+.SearchResults {
+  width: 50%;
+  height: 950px;
+  overflow-y: scroll;
+  padding: .88rem;
+  background-color: rgba(1, 12, 63, 0.7);
+  box-shadow: 0 4px 2px 2px #000000;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+@media only screen and (max-width: 1020px) {
+  .SearchResults {
+    width: 90%;
+    margin-bottom: 2rem;
+  }
+}
+<div class="Playlist">
+  <input value="New Playlist"/>
+  <!-- Add a TrackList component -->
+  <a class="Playlist-save">SAVE TO SPOTIFY</a>
+</div>
+.Playlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  width: 37%;
+  max-height: 950px;
+  padding: 2.27rem 1.16rem;
+  background-color: rgba(1, 12, 63, 0.7);
+  box-shadow: 0 4px 2px 2px #000000;
+}
+
+.Playlist input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid #6f6f6f;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.55rem;
+  color: #fff;
+}
+
+.Playlist-save {
+  cursor: pointer;
+  width: 10rem;
+  padding: .77rem 0;
+  border-radius: 54px;
+  margin-top: 1.27rem;
+  background-color: #6c41ec;
+  text-align: center;
+  font-size: .83rem;
+  transition: background-color .25s;
+}
+
+.Playlist-save:hover {
+  background-color: rgba(108, 65, 233, .7);
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+@media only screen and (max-width: 1020px) {
+  .Playlist {
+    width: 90%;
+  }
+}
+<div class="TrackList">
+    <!-- You will add a map method that renders a set of Track components  -->
+</div>
+.TrackList {
+  width: 100%;
+}
+<div class="Track">
+  <div class="Track-information">
+    <h3><!-- track name will go here --></h3>
+    <p><!-- track artist will go here--> | <!-- track album will go here --></p>
+  </div>
+  <a class="Track-action"><!-- + or - will go here --></a>
+</div>
+.Track {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(256, 256, 256, 0.8);
+}
+
+.Track-action {
+  cursor: pointer;
+  padding: .5rem;
+  font-size: 1.05rem;
+  transition: color .25s;
+}
+
+.Track-action:hover {
+  color: rgba(265, 265, 265, .5);
+}
+
+.Track-information {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 72px;
+}
+
+.Track-information h3 {
+  margin-bottom: .22rem;
+}
+
+.Track-information p {
+  font-size: .83rem;
+  font-weight: 300;
+  color: rgba(256, 256, 256, 0.8);
+}
+src components{dir(app.js, app.cs, index.js),
+render.(<div>
+  <h1>Ja<span class="highlight">mmm</span>ing</h1>
+  <div class="App">
+    <!-- Add a SearchBar component -->
+    <div class="App-playlist">
+      <!-- Add a SearchResults component -->
+      <!-- Add a Playlist component -->
+    </div>
+  </div>
+</div>);
+}
+<img href="https://s3.amazonaws.com/codecademy-content/programs/react/jammming/background_photo_desktop.jpg">
+import { Playlist} from 'App.css';
+import { SearchBar } from 'App.css';
+import { SearchResults } from 'App.css';
+body,
+html,
+#root {
+  height: 100%;
+}
+
+html {
+  font-size: 18px;
+}
+
+h1 {
+  padding: .77rem 0;
+  background-color: #010c3f;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.88rem;
+  color: #fff;
+}
+
+h1 .highlight {
+  color: #6c41ec;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.55rem;
+}
+
+.App {
+  height: 100%;
+  padding: 0 17% 10% 17%;
+  background-image: url('./background_photo_desktop.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  color: #fff;
+}
+
+.App-playlist {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media only screen and (max-width: 1020px) {
+  .App-playlist {
+    align-items: center;
+    flex-direction: column;
+  }
+}
+create 'SearchBar' {
+  component: SearchBar.js;
+  component: SearchBar.css;
+}
+<div class="SearchBar">
+  <input placeholder="Enter A Song, Album, or Artist" />
+  <a>SEARCH</a>
+</div>
+<div class="SearchBar">
+  <input placeholder="Enter A Song, Album, or Artist" />
+  <a>SEARCH</a>
+</div>
+import 'React';
+create 'SearchBar' {
+extend(React.Component);
+render(<div class="SearchBar">
+  <input placeholder="Enter A Song, Album, or Artist" />
+  <a>SEARCH</a>
+</div>);
+export {SearchBar};
+}
+.SearchBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6.94rem;
+  margin-bottom: 6.33rem;
+}
+
+.SearchBar input {
+  width: 287px;
+  padding: .88rem 0;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  margin-bottom: 2.22rem;
+  color: #010c3f;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.SearchBar input:focus {
+  outline: none;
+}
+
+.SearchBar a {
+  cursor: pointer;
+  width: 8.11rem;
+  padding: .77rem 0;
+  border-radius: 54px;
+  background-color: #010c3f;
+  text-align: center;
+  font-size: .833rem;
+  transition: background-color .25s;
+}
+
+.SearchBar a:hover {
+  background-color: rgba(108, 65, 233, .7);
+}
+import { 'SearchBar.css'} to 'SearchBar.js';
+const components {
+create 'SearchResults',
+  add: SearchResults.js,
+  add: SearchResults.css,
+render.(<div className="SearchResults">
+  <h2>Results</h2>
+  <!-- Add a TrackList component -->
+</div>);
+  }
+  .SearchResults {
+    width: 50%;
+    height: 950px;
+    overflow-y: scroll;
+    padding: .88rem;
+    background-color: rgba(1, 12, 63, 0.7);
+    box-shadow: 0 4px 2px 2px #000000;
+  }
+
+  ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+  }
+
+  @media only screen and (max-width: 1020px) {
+    .SearchResults {
+      width: 90%;
+      margin-bottom: 2rem;
+    }
+  }
+  create Playlist {
+   render(Playlist.js, Playslist.css);
+  .SearchResults {
+  width: 50%;
+  height: 950px;
+  overflow-y: scroll;
+  padding: .88rem;
+  background-color: rgba(1, 12, 63, 0.7);
+  box-shadow: 0 4px 2px 2px #000000;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+@media only screen and (max-width: 1020px) {
+  .SearchResults {
+    width: 90%;
+    margin-bottom: 2rem;
+  }
+}
+  }
+  .Playlist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    width: 37%;
+    max-height: 950px;
+    padding: 2.27rem 1.16rem;
+    background-color: rgba(1, 12, 63, 0.7);
+    box-shadow: 0 4px 2px 2px #000000;
+  }
+
+  .Playlist input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid #6f6f6f;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.55rem;
+    color: #fff;
+  }
+
+  .Playlist-save {
+    cursor: pointer;
+    width: 10rem;
+    padding: .77rem 0;
+    border-radius: 54px;
+    margin-top: 1.27rem;
+    background-color: #6c41ec;
+    text-align: center;
+    font-size: .83rem;
+    transition: background-color .25s;
+  }
+
+  .Playlist-save:hover {
+    background-color: rgba(108, 65, 233, .7);
+  }
+
+  ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+  }
+
+  @media only screen and (max-width: 1020px) {
+    .Playlist {
+      width: 90%;
+    }
+  }
+import {Playlist.css}
+create 'TrackList' (
+  add: Tracklist.js,
+  add: Tracklist.css;
+)
+const Tracklist.js {
+render.(<div class="TrackList">
+    <!-- You will add a map method that renders a set of Track components  -->
+</div>);
+}
+.TrackList {
+  width: 100%;
+}
+create track {
+  add: track.js,
+  add: track.css;
+  render.(<div class="Track">
+  <div class="Track-information">
+    <h3><!-- track name will go here --></h3>
+    <p><!-- track artist will go here--> | <!-- track album will go here --></p>
+  </div>
+  <a class="Track-action"><!-- + or - will go here --></a>
+</div>);
+}
+.Track {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(256, 256, 256, 0.8);
+}
+
+.Track-action {
+  cursor: pointer;
+  padding: .5rem;
+  font-size: 1.05rem;
+  transition: color .25s;
+}
+
+.Track-action:hover {
+  color: rgba(265, 265, 265, .5);
+}
+
+.Track-information {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 72px;
+}
+
+.Track-information h3 {
+  margin-bottom: .22rem;
+}
+
+.Track-information p {
+  font-size: .83rem;
+  font-weight: 300;
+  color: rgba(256, 256, 256, 0.8);
+}
+const App {
+  super(props),
+  value {this.state.searchResults},
+  property (SearchResults, name, list, artist, album, id);
+  }
+const SearchResults.js {
+  .render (this.state.searchResults),
+  .map (tracks),
+  let key = track.id,
+  .render (this.props.track.name, this.props.track.artist, this.props.track.album);
+}
+let playlistName = 'song',{
+  render (id, name, artist, album);
+}
+.render playlist {this.state.playlistName}, {this.state.playlistTracks},
+(playlistName, playlistTracks);
+.render(Playlist.js)
+if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+  return;
+}
+const searchResults {
+.addTrack('Shoot to Thrill'),
+const onAdd {isRemoval};
+)
+.render(this.prop.onAdd);
+.addTrack ({this.props.Track}, this.props.onAdd);
+Track {
+super(props),
+this.addTrack(this);
+}
+Track.js on.Click {(this.addTrack),
+removeTrack id /.'Shoot To Thrill',
+.removeTrack(this), (onRemove),
+PlayList onRemove (
+isRemovel = TrackList
+),
+.render (this.props.onRemove) onRemove,
+.render (this.props.track) Track,
+.pass (this.props.track) to (this.props.onRemove),
+this.removeTrack(this),
+const onClick {this.remove.track};
+}
+const updatePlaylist {
+let nameinargument = 'input argument';
+}
+.updatePlaylist(this),
+pass updatePlaylist
+.onNameChange (handleNameChange,
+<input>PlayList</input>);
+super (props) {
+.handleNameChange(onChange);
+]
+const savePlaylist
+uri (trackURIs) playtrackList {
+.savePlaylist(PlayList) onSave,
+SAVE TO SPOTIFY (this.props.onSave) onSave,
+const trackPlaylist (trackURIs);
+}
+App SearchResults {
+.search (long term, console),
+.search (this, SearchBar, onSearch),
+.search (this.props.onSearch),
+.search (this,
+super(props)),
+handleNameChange (event argument/ term),
+this (this.handleTermChange),
+<input>onChange = "this.handleNameChange"</input>;
+}
+{
+   "src/util": "Spotify.js",
+   var empty = 0,
+   "Spotify": empty,
+   export Spotify,
+   create getAccessToken,
+   <input>"https://accounts.spotify.com/authorize?client_id=5fe01282e94241328a84e7c5cc169164&redirect_uri=http:%2F%2Fexample.com%2Fcallback&scope=user-read-private%20user-read-email&response_type=token&state=123"</input>;
+}
+window.setTimeout((let name = "http://localhost:3000/");
+window.history.pushState('Access Token', null, '/');
+const var (let var name = "client_id",
+let uri = "http://localhost:3000/");
+window.location(https://accounts.spotify.com/authorize?client_id=CLIENT_ID&response_type=token&scope=playlist-modify-public&redirect_uri=REDIRECT_URI);
+$.ajax({
+   url: 'https://localhost:3000/',
+   headers: {
+       'Authorization': 'Access Token ' + accessToken
+   },
+   success: function(response) {
+       ...
+   }
+  fetch ('https://api.spotify.com/v1');
+  .search (fetch ('https://api.spotify.com/v1/search?type=track&q=TERM'));
+  {
+  headers: {Authorization: `Bearer ${accessToken}`,
+  .json (track.id),
+  .json (track.name),
+  .json (track.artists[0].name),
+  .json (track.album.name),
+  .json (track.uri);
+    }
+  }
+Spotify.search(SearchResults);
+.savePlaylist(Spotify.savePlaylist);
+Spotify.js {}
+let name = 'Dustin's Playlist',
+const tracks ('Endless Summer', 'Vampires', 'Sunset', 'Dreaming');
+}
+$.ajax({
+   url: 'https://api.spotify.com/v1/dustins/playlists',
+   headers: {
+       'Authorization': 'Dustin ' + accessToken
+   },
+   success: function(response) {
+       'Endless Summer', 'Vampires', 'Sunset', Dreaming';
+   }
+.json {
+'https://api.spotify.com/v1/dustins/playlists',
+{headers : headers};
+}
+const {body : /v1/users/dustins/playlists}, {method : body};
+fetch (
+/v1/users/{dustin}/playlists/{dustins.playlists}/tracks : method => body};
+);
+.savePlaylist(.Spotify.Playlist,
+(playlistName = 'New Playlist') playlistTracks);
+npm install --global surge
+DUSTINS_LIST.surge.sh
+$ npm run build
+$ surge
